@@ -758,7 +758,7 @@ html {
         align-items: center;
     }
 
-    .text-header, .contact-txt {
+    .text-header, .contact-txt, .rendez-vous-txt {
        z-index: -1000;
     }
 
