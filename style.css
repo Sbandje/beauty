@@ -458,6 +458,14 @@
 
 /* Page Service */
 
+html {
+    scroll-behavior: smooth;
+}
+.active-section {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+}
+
 .service-header {
     width: 100%;
     justify-content: center;
@@ -579,8 +587,25 @@
 
 .contact-text, .rendez-vous-text {
     text-align: center;
+}
+
+.contact-txt {
+    text-align: center;
     color: white;
     margin-top: 6rem;
+}
+
+.contact-txt h1 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+.contact-txt p {
+    font-size: 2rem;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 5rem;
 }
 
 .contact-text h1, .rendez-vous-text h1 {
@@ -953,5 +978,33 @@
         border-radius: none;
     }
 
+    /* Page contact et rendez-vous */
+
+    .contact-header, .rendez-vous-header {
+        height: 30rem;
+    }
+
+    .contact-button button, .rendez-vous-button button {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .contact-form form, .rendez-vous-form form {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .contact-form form input, 
+    .contact-form form textarea,
+    .rendez-vous-form form input,
+    .rendez-vous-form form textarea {
+        width: 80%;
+    }
+
+    .contact-form form button, .rendez-vous-form form button {
+        width: 80%;
+
 }
+    }
+
 

@@ -1,265 +1,178 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contrôle Texte - Taille & Position</title>
+    <title>Document</title>
+
     <style>
-        :root {
-            --text-scale: 1;
-            --text-spacing: 1;
-            --layout-mode: 'standard'; /* standard, compact, spacious */
-        }
+        html {
+    scroll-behavior: smooth;
+}
+
+.content-section {
+    min-height: 100vh;
+    padding: 50px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.nav-btn:hover {
+    background: #0056b3;
+}
+
+/* Style pour la section active */
+.active-section {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+}
+    </style>
+
+
+</head>
+<body>
+    <nav>
+    <button class="nav-btn" data-target="section1">Section 1</button>
+    <button class="nav-btn" data-target="section2">Section 2</button>
+    <button class="nav-btn" data-target="section3">Section 3</button>
+</nav>
+
+<section id="section1" class="content-section">
+    <h2>Section 1</h2>
+    <p>Contenu...</p>
+</section>
+
+<section id="section2" class="content-section">
+    <h2>Section 2</h2>
+    <p>Contenu...</p>
+</section>
+
+<section id="section3" class="content-section">
+    <h2>Section 3</h2>
+    <p>Contenu...</p>
+</section>
+
+<script>
+    // Animation fluide avec JavaScript
+document.querySelectorAll('.nav-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
         
-        body {
-            font-family: Arial, sans-serif;
-            font-size: calc(16px * var(--text-scale));
-            line-height: calc(1.6 * var(--text-spacing));
-            transition: all 0.3s ease;
-            margin: 0;
-            padding: 20px;
+        if (targetSection) {
+            // Animation fluide
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Ajouter une classe active (optionnel)
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active-section');
+            });
+            targetSection.classList.add('active-section');
         }
-        
-        .container {
-            max-width: calc(1200px * var(--text-spacing));
-            margin: 0 auto;
-            padding: calc(20px * var(--text-spacing));
-        }
-        
-        h1 { 
-            font-size: calc(2.5em * var(--text-scale));
-            margin-bottom: calc(1em * var(--text-spacing));
-            text-align: var(--title-align, left);
-        }
-        
-        h2 { 
-            font-size: calc(2em * var(--text-scale));
-            margin: calc(1.5em * var(--text-spacing)) 0 calc(0.8em * var(--text-spacing)) 0;
-        }
-        
-        p {
-            margin-bottom: calc(1em * var(--text-spacing));
-            text-align: var(--paragraph-align, left);
-        }
-        
-        .card {
-            background: #f8f9fa;
-            padding: calc(20px * var(--text-spacing));
-            margin: calc(15px * var(--text-spacing)) 0;
-            border-radius: 8px;
-            border-left: var(--card-border, 4px solid #007bff);
-        }
-        
-        /* Navigation */
-        .nav-panel {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        
-        .nav-group {
-            margin-bottom: 15px;
-        }
-        
-        .nav-group h3 {
-            margin: 0 0 10px 0;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .nav-button {
-            padding: 8px 12px;
-            margin: 2px;
-            border: 1px solid #ddd;
-            background: white;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 12px;
-            transition: all 0.2s ease;
-        }
-        
-        .nav-button:hover {
-            background: #f0f0f0;
-        }
-        
-        .nav-button.active {
-            background: #007bff;
-            color: white;
-            border-color: #007bff;
-        }
-        
-        /* Layout modes */
-        body[data-layout="compact"] .card {
-            padding: 10px;
-            margin: 10px 0;
-        }
-        
-        body[data-layout="spacious"] .card {
-            padding: 30px;
-            margin: 25px 0;
-        }
+    });
+});
+</script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .section-select {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.section-select:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+.page-section {
+    min-height: 100vh;
+    padding: 80px 20px 20px;
+    border-bottom: 1px solid #eee;
+    scroll-margin-top: 80px; /* Pour compenser un header fixe */
+}
+
+/* Animation fluide pour tout le document */
+html {
+    scroll-behavior: smooth;
+}
     </style>
 </head>
 <body>
-    <!-- Panneau de navigation -->
-    <div class="nav-panel">
-        <!-- Contrôle de taille -->
-        <div class="nav-group">
-            <h3>Taille du texte</h3>
-            <button class="nav-button active" data-scale="0.8" data-spacing="0.8">Petit</button>
-            <button class="nav-button" data-scale="1" data-spacing="1">Moyen</button>
-            <button class="nav-button" data-scale="1.2" data-spacing="1.2">Grand</button>
-            <button class="nav-button" data-scale="1.4" data-spacing="1.4">Très Grand</button>
-        </div>
-        
-        <!-- Contrôle d'alignement -->
-        <div class="nav-group">
-            <h3>Alignement</h3>
-            <button class="nav-button" data-align="left">Gauche</button>
-            <button class="nav-button active" data-align="center">Centre</button>
-            <button class="nav-button" data-align="right">Droite</button>
-            <button class="nav-button" data-align="justify">Justifié</button>
-        </div>
-        
-        <!-- Contrôle de mise en page -->
-        <div class="nav-group">
-            <h3>Espacement</h3>
-            <button class="nav-button" data-layout="compact">Compact</button>
-            <button class="nav-button active" data-layout="standard">Standard</button>
-            <button class="nav-button" data-layout="spacious">Spacieux</button>
-        </div>
-        
-        <!-- Reset -->
-        <button class="nav-button" onclick="resetSettings()" style="background: #dc3545; color: white; margin-top: 10px;">
-            Reset
-        </button>
-    </div>
+    <select id="sectionSelector" class="section-select">
+    <option value="">Choisir une section</option>
+    <option value="accueil">Accueil</option>
+    <option value="services">Services</option>
+    <option value="apropos">À propos</option>
+    <option value="contact">Contact</option>
+</select>
 
-    <!-- Contenu -->
-    <div class="container">
-        <h1>Contrôle Complet du Texte</h1>
-        
-        <div class="card">
-            <h2>Fonctionnalités Disponibles</h2>
-            <p>Ce système vous permet de contrôler plusieurs aspects du texte :</p>
-            <ul>
-                <li><strong>Taille</strong> : Modifier la taille de police globale</li>
-                <li><strong>Position</strong> : Changer l'alignement du texte</li>
-                <li><strong>Espacement</strong> : Ajuster les marges et padding</li>
-                <li><strong>Interligne</strong> : Modifier l'espacement entre les lignes</li>
-            </ul>
-        </div>
-        
-        <div class="card">
-            <h2>Accessibilité Améliorée</h2>
-            <p>Ces contrôles permettent aux utilisateurs de personnaliser l'affichage selon leurs préférences et besoins visuels.</p>
-            <p>Les paramètres sont sauvegardés localement et restaurés à la prochaine visite.</p>
-        </div>
-        
-        <div class="card">
-            <h2>Utilisation Responsive</h2>
-            <p>Le système s'adapte à différentes tailles d'écran tout en conservant les préférences de l'utilisateur.</p>
-            <p>Essayez les différentes combinaisons pour trouver celle qui vous convient le mieux !</p>
-        </div>
-    </div>
+<section id="accueil" class="page-section">
+    <h2>Accueil</h2>
+    <p>Bienvenue sur notre site...</p>
+</section>
 
-    <script>
-        // Configuration initiale
-        const config = {
-            scale: 1,
-            spacing: 1,
-            align: 'center',
-            layout: 'standard'
-        };
+<section id="services" class="page-section">
+    <h2>Nos Services</h2>
+    <p>Découvrez nos services...</p>
+</section>
 
-        // Appliquer les paramètres
-        function applySettings() {
-            document.documentElement.style.setProperty('--text-scale', config.scale);
-            document.documentElement.style.setProperty('--text-spacing', config.spacing);
-            document.documentElement.style.setProperty('--paragraph-align', config.align);
-            document.documentElement.style.setProperty('--title-align', config.align);
-            document.body.setAttribute('data-layout', config.layout);
-        }
+<section id="apropos" class="page-section">
+    <h2>À propos</h2>
+    <p>Qui sommes-nous...</p>
+</section>
 
-        // Gestion des boutons de taille
-        document.querySelectorAll('[data-scale]').forEach(button => {
-            button.addEventListener('click', function() {
-                config.scale = parseFloat(this.dataset.scale);
-                config.spacing = parseFloat(this.dataset.spacing);
-                
-                // Mettre à jour les boutons actifs
-                document.querySelectorAll('[data-scale]').forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                applySettings();
-                saveSettings();
+<section id="contact" class="page-section">
+    <h2>Contact</h2>
+    <p>Comment nous contacter...</p>
+</section>
+
+<script>
+    document.getElementById('sectionSelector').addEventListener('change', function() {
+    const selectedValue = this.value;
+    
+    if (selectedValue) {
+        const targetSection = document.getElementById(selectedValue);
+        
+        if (targetSection) {
+            // Redirection vers la section
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-        });
-
-        // Gestion des boutons d'alignement
-        document.querySelectorAll('[data-align]').forEach(button => {
-            button.addEventListener('click', function() {
-                config.align = this.dataset.align;
-                
-                document.querySelectorAll('[data-align]').forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                applySettings();
-                saveSettings();
-            });
-        });
-
-        // Gestion des boutons de layout
-        document.querySelectorAll('[data-layout]').forEach(button => {
-            button.addEventListener('click', function() {
-                config.layout = this.dataset.layout;
-                
-                document.querySelectorAll('[data-layout]').forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                applySettings();
-                saveSettings();
-            });
-        });
-
-        // Sauvegarder les paramètres
-        function saveSettings() {
-            localStorage.setItem('textSettings', JSON.stringify(config));
-        }
-
-        // Charger les paramètres sauvegardés
-        function loadSettings() {
-            const saved = localStorage.getItem('textSettings');
-            if (saved) {
-                Object.assign(config, JSON.parse(saved));
-                applySettings();
-                
-                // Mettre à jour les boutons actifs
-                document.querySelectorAll(`[data-scale="${config.scale}"]`).forEach(btn => btn.classList.add('active'));
-                document.querySelectorAll(`[data-align="${config.align}"]`).forEach(btn => btn.classList.add('active'));
-                document.querySelectorAll(`[data-layout="${config.layout}"]`).forEach(btn => btn.classList.add('active'));
-            }
-        }
-
-        // Reset des paramètres
-        function resetSettings() {
-            config.scale = 1;
-            config.spacing = 1;
-            config.align = 'center';
-            config.layout = 'standard';
             
-            applySettings();
-            saveSettings();
-            location.reload();
+            // Réinitialiser la sélection (optionnel)
+            setTimeout(() => {
+                this.value = '';
+            }, 1000);
         }
-
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', loadSettings);
-    </script>
+    }
+});
+</script>
 </body>
 </html>
