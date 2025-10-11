@@ -758,7 +758,7 @@ html {
         align-items: center;
     }
 
-    .text-header {
+    .text-header, .contact-txt {
        z-index: -1000;
     }
 
@@ -906,7 +906,7 @@ html {
 }
 
 /* page footer */
-
+    
 
     .footer-contact {
        display: none;
@@ -980,7 +980,7 @@ html {
 
     /* Page contact et rendez-vous */
 
-    .contact-header, .rendez-vous-header {
+     .contact-header, .rendez-vous-header {
         height: 30rem;
     }
 
@@ -1001,10 +1001,8 @@ html {
         width: 80%;
     }
 
-    .contact-form form button, .rendez-vous-form form button {
-        width: 80%;
+    
 
-}
     }
 
 

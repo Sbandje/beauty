@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
         <link rel="stylesheet" href="style.css">
         <title>Contactez-nous</title>
+        <style>
+            @media (max-width: 600px) {
+                .footer-div {
+        margin-bottom: 12rem;
+    }}
+        </style>
     </head>
     <body>
        <div class="contact-header">
-            <div class="header">
-                <div class="image-logo">
-                    <img src="avecrajout/images/téléchargement (1).png" alt="logo du site">
-                </div>
+           <div class="header">
+            <div class="image-logo">
+                <img src="avecrajout/images/téléchargement (1).png" alt="logo du site">
+            </div>
 
-                <div class="navbar">
-                    <div class="dropdown">
-                        <button onclick="toggleDropdown()"><i class="fa-solid fa-bars"></i></button>
-                        <div id="myDropdown" class="dropdown-content">
-                            <nav>
-                                <ul>
-                                    <li><a href="index.html">Accueil</a></li>
-                                    <li><a href="service.html">Service</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                
-                                </ul>
-                            </nav>
-                        </div>
+            <div class="navbar">
+                <div class="dropdown">
+                    <button onclick="toggleDropdown()">Menu</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <nav>
+                            <ul>
+                                <li><a href="index.html">Accueil</a></li>
+                                <li><a href="service.html">Service</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                            
+                            </ul>
+                        </nav>
                     </div>
                 </div>
+            </div>
             </div>
     
             <div class="contact-txt">
@@ -53,23 +61,38 @@
             </div>
             <div class="contact-form">
                 <h1>Contactez-nous</h1>
-                <form class="contact-form" action="submit_contact.html" method="post">
+                <form class="contact-form" id="whatsappForm">
 
-                    <label for="name">Nom</label><br>
-                    <input type="text" name="name" placeholder="Votre nom" required><br>
+                    <div class="form-group">
+                        <label for="name">Nom</label><br>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required><br>
+                    </div>
 
-                    <label for="telephone">Téléphone</label><br>
-                    <input type="tel" name="telephone" placeholder="Votre téléphone" required><br>
 
-                    <label for="email">Email</label><br>
-                    <input type="email" name="email" placeholder="Votre email" required><br>
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label><br>
+                        <input type="tel" id="phone" name="phone" placeholder="Votre téléphone" required><br>
+                    </div>
 
-                    <label for="message">Message</label><br>
-                    <textarea name="message" placeholder="Votre message" required></textarea><br><br>
-                    <button type="submit">Envoyer</button>
+
+                    <div class="form-group">
+                        <label for="email">Email</label><br>
+                        <input type="email" id="email" name="email" placeholder="Votre email" required><br>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="message">Message</label><br>
+                        <textarea id="message" name="message" placeholder="Votre message" required></textarea><br><br>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        📱 Envoyer via WhatsApp
+                    </button>
                 </form>
             </div>    
         </div>
+
 <div class="footer">
         <div class="footer-class">
             <div class="footer-sidebar">
@@ -85,7 +108,7 @@
                     <button type="submit">Envoyer</button>
                 </div>
 
-                 <!-- <div class="footer-menu"> 
+                 <div class="footer-menu"> 
                     <div id="footer-image">
                         <img src="avecrajout/images/téléchargement (1).png" alt="logo du site"> 
                     </div> 
@@ -111,7 +134,7 @@
                     </div>
                         
                 </div>
-            </div>  -->
+            </div> 
                 
         </div>
             <div class="footer-div">
@@ -120,6 +143,56 @@
     </div>
 
 
-        <script href="script.js"></script>
+        <script >
+             function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Fermer le menu si on clique en dehors
+        window.onclick = function(event) {
+            if (!event.target.matches('button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                dropdowns[i].classList.remove('show');
+            }
+            }
+        }
+
+       
+            document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupérer les valeurs du formulaire
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Votre numéro WhatsApp (format international sans +)
+            const whatsappNumber = "0022870093359"; // Remplacez par votre numéro
+            
+            // Construire le message
+            const whatsappMessage = `
+        *Nouveau contact depuis le site web*
+
+        *Nom:* ${name}
+        *Téléphone:* ${phone}
+        *Email:* ${email}
+        *Message:* ${message}
+
+        _Message envoyé depuis le formulaire de contact_
+            `.trim();
+            
+            // Encoder le message pour URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Créer l'URL WhatsApp
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Rediriger vers WhatsApp
+            window.open(whatsappURL, '_blank');
+        });
+</script>
+        
     </body>
 </html>
