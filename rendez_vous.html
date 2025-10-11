@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
         <title>Rendez-Vous</title>
     </head>
 
@@ -30,86 +30,129 @@
             </div>
         </div> 
 
-                <div class="rendez-vous-text">
-                 <h1>Prendre un Rendez-Vous</h1>
-                 <p>Planifiez votre prochaine visite chez Hana Beauty en quelques clics. <br> Utilisez le formulaire ci-dessous pour choisir la date et l'heure qui vous conviennent le mieux. <br>Nous avons hâte de vous accueillir et de sublimer vos cheveux !</p>
+                <div class="rendez-vous-txt">
+                    <h1>Prendre un Rendez-Vous</h1>
+                    <p>
+                        Planifiez votre prochaine visite chez Hana Beauty en quelques clics. 
+                        <br>Nous avons hâte de vous accueillir et de sublimer vos cheveux !
+                    </p>
                 </div>
          </div>
           <div class="rendez-vous-section">
                 
     
                 <div class="rendez-vous-button">
-                 <button><a href="contact.html">Contact</a></button>
-                 <button><a href="rendez_vous.html">Rendez-Vous</a></button>
+                    <button><a href="contact.html">Contact</a></button>
+                    <button><a href="rendez_vous.html">Rendez-Vous</a></button>
                 </div>
+
+                <div class="rendez-vous-text">
+                    <h1>Prendre un Rendez-Vous</h1>
+                    <p>Planifiez votre prochaine visite chez Hana Beauty en quelques clics. <br> Utilisez le formulaire ci-dessous pour choisir la date et l'heure qui vous conviennent le mieux. <br>Nous avons hâte de vous accueillir et de sublimer vos cheveux !</p>
+                </div>
+
                 <div class="rendez-vous-form">
                  <h1>Prendre un Rendez-Vous</h1>
-                 <form class="rendez-vous-form" action="submit_rendez_vous.html" method="post">
-    
-                    <label for="name">Nom</label><br>
-                    <input type="text" name="name" placeholder="Votre nom" required><br>
-    
-                    <label for="telephone">Téléphone</label><br>
-                    <input type="tel" name="telephone" placeholder="Votre téléphone" required><br>
-    
-                    <label for="email">Email</label><br>
-                    <input type="email" name="email" placeholder="Votre email" required><br>
-    
-                    <label for="date">Date du Rendez-Vous</label><br>
-                    <input type="date" name="date" required><br>
-    
-                    <label for="time">Heure du Rendez-Vous</label><br>
-                    <input type="time" name="time" required><br><br>
+                 <form class="rendez-vous-form" id="whatsappForm">
+                    
+                    <div class="form-group">
+                        <label for="name">Nom</label><br>
+                        <input type="text" name="name" id="name" placeholder="Votre nom" required><br>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label><br>
+                        <input type="tel" name="phone" id="phone" placeholder="Votre téléphone" required><br>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label><br>
+                        <input type="email" name="email" id="email" placeholder="Votre email" required><br>    
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Date du Rendez-Vous</label><br>
+                        <input type="date" name="date" id="date" required><br>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label for="time">Heure du Rendez-Vous</label><br>
+                        <input type="time" name="time" id="time" required><br><br>
+                    </div>
+                    
 
-                    <label for="photo">Déposez votre modèle :</label><br>
-                    <input type="file" id="photo" name="image_du_modele" accept="image/*"><br><br>
+                    <div class="form-group">
+                        <label for="photo">Déposez votre modèle :</label><br>
+                        <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+                    </div>
+                    
     
-                    <button type="submit">Envoyer</button>
+                    <button type="submit" class="submit-btn">Envoyer</button>
                  </form>
                 </div>    
           </div>
     
           <div class="footer">
-        <div class="footer-sidebar">
-            <div class="footer-contact">
-                <h3>Contact</h3>
-                <p>Nom</p><hr>
-                <p>Prénoms</p><hr>
-                <p>Téléphone</p><hr>
-                <p>Message</p>
-                <textarea name="text" id="message">
-                    Saisir votre message
-                </textarea>
-                <button type="submit">Envoyer</button>
-            </div>
-
-            <div class="footer-menu">
-                <img src="avecrajout/images/téléchargement (1).png" alt="logo du site"> 
-                <nav>
-                    <ul>
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="service.html">Service</a></li>
-                        <li><a href="pages/blog.html">Blog</a></li>
-                        <li><a href="pages/contact.html">Contact</a></li>
-
-                    </ul>
-                      
-            </nav>
-
-            <div class="media-social">
-              
-                <p> 
-                    <em><i class="fa-brands fa-whatsapp"></i></em>
-                    <em><i class="fa-brands fa-tiktok"></i></em>
-                    <em><i class="fa-brands fa-instagram"></i></em>
-                </p>
-            </div>
-            </div>
-            
-        </div>
+        
             <div class="footer-div">
                 <p>Copyright &copy; Shalom Bandje schalombandje@gmail.com</p>
-            </div>   
-      <script href="script.js"></script>
+            </div> 
+    </div>  
+      <script>
+             function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Fermer le menu si on clique en dehors
+        window.onclick = function(event) {
+            if (!event.target.matches('button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                dropdowns[i].classList.remove('show');
+            }
+            }
+        }
+
+       
+            document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupérer les valeurs du formulaire
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const photo = document.getElementById('photo').value;
+
+            
+            // Votre numéro WhatsApp (format international sans +)
+            const whatsappNumber = "70093359"; // Remplacez par votre numéro
+            
+            // Construire le message
+            const whatsappMessage = `
+        *Nouveau rendez-vous depuis le site web*
+
+        *Nom:* ${name}
+        *Téléphone:* ${phone}
+        *Email:* ${email}
+        *Date:* ${date}
+        *Heure:* ${time}
+        *Modèle:* ${photo}
+
+        _Nouvel prise de rendez-vous depuis le site_
+            `.trim();
+            
+            // Encoder le message pour URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Créer l'URL WhatsApp
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Rediriger vers WhatsApp
+            window.open(whatsappURL, '_blank');
+        });
+      </script>
     </body>
 </html>

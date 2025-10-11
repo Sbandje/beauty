@@ -589,19 +589,19 @@ html {
     text-align: center;
 }
 
-.contact-txt {
+.contact-txt, .rendez-vous-txt {
     text-align: center;
     color: white;
     margin-top: 6rem;
 }
 
-.contact-txt h1 {
+.contact-txt h1, .rendez-vous-txt h1 {
     font-size: 3rem;
     margin-bottom: 4rem;
     margin-top: 2rem;
 }
 
-.contact-txt p {
+.contact-txt p, .rendez-vous-txt p {
     font-size: 2rem;
     text-align: center;
     justify-content: center;
@@ -1001,8 +1001,36 @@ html {
         width: 80%;
     }
 
-    
+    .contact-form .submit-btn {
+        width: 80%;
+        font-size: 1rem;
+        background-color: #25D366;
+    }
+
+    .rendez-vous-form .submit-btn {
+        width: 80%;
+        font-size: 1rem;
+        background-color: #25D366;
 
     }
+
+    .contact-txt, .rendez-vous-txt {
+    text-align: center;
+}
+
+.contact-txt h1, .rendez-vous-txt h1 {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+.contact-txt p, .rendez-vous-txt p {
+    font-size: 1.2rem;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+}
 
 
