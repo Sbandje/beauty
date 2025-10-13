@@ -25,8 +25,8 @@
                             <ul>
                                 <li><a href="#">Accueil</a></li>
                                 <li><a href="service.html">Service</a></li>
-                                <li><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
+                                <li class="fak"><i class="fa-solid fa-phone"></i>+33 7 59 41 41 38</li>
                             
                             </ul>
                         </nav>
@@ -36,14 +36,14 @@
         </div>
 
         <div class="text-header">
-            <h1>Tes tresses, Ton histoire.</h1>
-            <p>Découvre nos mèches, tissages, nos modèles. 
+            <h1 class="animate-fadeInUp">Tes tresses, Ton histoire.</h1>
+            <p class="tagline animate-fadeInUp" style="animation-delay: 0.2s;">Découvre nos mèches, tissages, nos modèles. 
                 Prends soin de tes cheveux <br> dans une ambiance  chaleureuse et accueillante
             </p>
 
             <div class="header-button">
-                <button type="submit"><a href="./service.html">Voir Plus<i class="fa-solid fa-arrow-right"></i></a></button>
-                <button type="submit"><a href="./rendez_vous.html">Rendez-Vous</a></button>
+                <button type="submit" class="cta-button animate-fadeInUp" style="animation-delay: 0.4s;"><a href="./service.html">Voir Plus<i class="fa-solid fa-arrow-right"></i></a></button>
+                <button type="submit" class="cta-button animate-fadeInUp" style="animation-delay: 0.4s;"><a href="./rendez_vous.html">Rendez-Vous</a></button>
             </div>
         </div>
     </div>
@@ -52,15 +52,15 @@
     <section>
         <div class="about-section">
         <div class="about-id">
-            <h1>Bienvenue chez hanna beauty</h1>
+            <h1 class="section-title scroll-animate">Bienvenue chez hanna beauty</h1>
             <p>Votre salon de coiffure proche de chez vous</p>
         </div>
 
         <div class="about-class">
-            <div id="about-image">
+            <div id="about-image" class="feature scroll-animate delay-1">
                 <img src="avecrajout/images/d260c9ee-de88-4109-9421-e2a745e928c6.jpeg" alt="image apropos">
             </div>
-            <div id="about-text">
+            <div id="about-text" class="feature scroll-animate delay-2">
                 <h1>Qui Sommes-Nous ?</h1>
                 <p>
                     Hana beauty est une personne, une entreprise, une communauté,
@@ -75,12 +75,12 @@
 
     <section>
         <div class="realisation">
-        <h1>Nos Réalisations</h1>
+        <h1 class="section-title scroll-animate">Nos Réalisations</h1>
         <div class="realisation-img">
-            <div id="image1-realisation">
+            <div id="image1-realisation" class="feature scroll-animate delay-1 animate-borderGlow">
                 <img src="avecrajout/images/X.jpeg" alt="image1">
 
-                <div id="image2-realisation">
+                <div id="image2-realisation" class="feature scroll-animate delay-2 animate-borderGlow" style="animation-delay: 1s;">
                     <img src="avecrajout/images/Cliente satisfaite 🇸🇳 —————————————— Tresses….jpeg" alt="image2">
                 </div>
             </div>
@@ -104,7 +104,7 @@
     </section>
 
     <div class="prestation">
-        <h1>Nos prestations</h1>
+        <h1 class="section-title scroll-animate">Nos prestations</h1>
         <p>
             Chez nous, vous êtes traités comme des rois et reines. Vous avez la possibilité  de choisir votre <br>modèle.
             Nous faisons des tresses africaines, des nattes collés, des fullani braids, des vanilles <br>et plus encore.
@@ -112,18 +112,18 @@
         </p>
 
         <div class="prestation-img">
-            <h3>Une coiffure ou une personnalité</h3>
+            <h3 class="section-title scroll-animate">Une coiffure ou une personnalité</h3>
             <div class="prestation-image">
-                <div id="prestation1">
+                <div id="prestation1" class="gallery-item scroll-animate delay-1">
                     <img src="avecrajout/images/1ba0c613-1f65-47f2-b723-a2937fe80d49.jpeg" alt="tresse africaine">
                 </div>
 
-                <div id="prestation2">
+                <div id="prestation2" class="gallery-item scroll-animate delay-2">
                     <img src="avecrajout/images/Short boho braids 🌚.jpeg" alt="tresse collée">
 
                 </div>
 
-                <div id="prestation3">
+                <div id="prestation3" class="gallery-item scroll-animate delay-3">
                     <img src="avecrajout/images/a823183c-d1b3-488f-bb1f-3a2cb9a90e9f.jpeg" alt="vanille">
                 </div>
             </div>
@@ -201,6 +201,43 @@
             }
             }
         }
+
+         // Animation au défilement
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollElements = document.querySelectorAll('.scroll-animate');
+            
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+            
+            const displayScrollElement = (element) => {
+                element.classList.add('visible');
+            };
+            
+            const hideScrollElement = (element) => {
+                element.classList.remove('visible');
+            };
+            
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.2)) {
+                        displayScrollElement(el);
+                    } else {
+                        hideScrollElement(el);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+            });
+            
+            // Initial check
+            handleScrollAnimation();
+        });
 
     </script>
     
